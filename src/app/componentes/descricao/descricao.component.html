@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class = "row" >
+        <div class="col card" style="width: 15rem;">     
+            <div class="card-body">
+              <img src='{{"assets/img/" + produtoService.produto.foto }}'class="img-fluid img-thumbnail" style="width: 200px;" alt="Foto">
+              <h5 class="card-title">Nome: </h5> <p>{{ produtoService.produto.nome}}</p>
+              <h5 class="card-title">Descrição: </h5><p class="card-text"> {{produtoService.produto.descricao}}</p>
+              <h5 class="card-title">Preço: </h5><p class="card-text">R$ {{produtoService.produto.preco}}</p>
+              <h5 class="card-title">Quantidade: </h5><p class="card-text"><input type="number" id ="qtd" placeholder="1" [(ngModel)] = "qtd" /></p>
+              </div>
+            </div>
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Comprar
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Compra</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Desejar confirmar a compra ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click) = comprar() data-bs-dismiss="modal" [routerLink]="['']"0>Confirmar Compra</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+    Adicionar ao Carrinho
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Carrinho</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja adicionar ao carrinho?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click) = carrinho() data-bs-dismiss="modal">Adicionar ao carrinho</button>
+        </div>
+      </div>
+    </div>
+
+  
+</div>
+<button [routerLink] = "['']" class="btn btn-dark btn-lg">Voltar</button>
+

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2>Lista de Pedidos</h2>
+
+        <div class="col card" style="width: 15rem;" *ngFor="let p of pedidos; index as i">
+            <div class="card-body">
+                <h5 class="card-title">Item: </h5>
+                <p class="card-text">{{p.nome }}</p>
+                <h5 class="card-title">Preço: </h5>
+                <p class="card-text">R$ {{p.preco}}</p>
+                <h5 class="card-title">Quantidade: </h5>
+                <p class="card-text"> {{p.quantidade}}</p>
+            </div>
+        </div>
+        <button [routerLink]="['']" class="btn btn-dark btn-lg">Voltar</button>
+    </div>
+</div>

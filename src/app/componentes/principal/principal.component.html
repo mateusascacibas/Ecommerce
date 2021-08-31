@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class = "row" id="linha">
+     <div class="col-sm-3 card" style="width: 15rem;" *ngFor="let prod of produtos;">
+    <img class="card-img-top" src='{{"assets/img/" + prod.foto }}' id ="imagem"alt="Card">
+    <div class="card-body">
+      <h5 class="card-title">{{prod.nome}}</h5>
+      <p class="card-text">{{prod.descricao}}</p>
+      <a class = "btn btn-primary" [routerLink]="['/descricao/' + prod.id]">{{prod.nome}}</a>
+    </div>
+  </div>
+  
+  <nav>
+    <ul class="pagination justify-content-center">
+     <li class ="page-item" [ngClass] = "{disabled: pagina === 0}">
+      <a class="page-link" href="#" (click)= "paginar($event, 0)">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+     </li>
+      <li class="page-item" [ngClass] = "{'active': pag === pagina}" *ngFor= "let pag of obterPaginas()">
+        <a ng-class="(pag === currentPage) ? 'active': 'sucess'" class="page-link " href="#" (click)= "paginar($event, pag)">{{ pag + 1 }}</a>
+      </li>
+      <li class="page-item"  [ngClass] = "{disabled: pagina === numeroPaginas() - 1}">
+        <a class="page-link" href="#" (click)= "paginar($event, numeroPaginas() - 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+</div>
